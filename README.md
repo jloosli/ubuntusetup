@@ -10,6 +10,8 @@ Partitions
 
 Files to save
 -------------
+/etc/hosts
+
 
 
 Packages to add
@@ -18,7 +20,8 @@ Packages to add
 echo "deb http://www.duinsoft.nl/pkg debs all" | sudo tee -a /etc/apt/sources.list
 sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 5CB26B26
 sudo apt-get update
-sudo apt-get install tasksel update-sun-jre gparted git zsh curl dkms build-essential linux-headers-`uname -r` libasound2-plugins:i386
+sudo apt-get install tasksel update-sun-jre gparted git zsh curl dkms build-essential \
+linux-headers-`uname -r` libasound2-plugins:i386 php-pear phpmyadmin
 
 ```
 
