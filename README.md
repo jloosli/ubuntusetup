@@ -4,16 +4,19 @@ Just a quick reference to how I have ubuntu set up so I can blow things up and p
 
 Partitions
 ----------
+```
 /home
 /var/www
 /var/lib/mysql
+```
 
 Files/directories to save
 -------------
+```
 /etc/hosts
 ~/.homestead/Homestead.yaml
 ~/.ssh
-
+```
 
 
 
