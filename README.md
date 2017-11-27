@@ -11,53 +11,69 @@ Partitions
 Files to save
 -------------
 /etc/hosts
+~/.homestead/Homestead.yaml
 
 
+Repositories to add
+-------------------
+```
+# Node and NPM
+curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+# Yarn
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+```
 
 Packages to add
 ---------------
 ```
-echo "deb http://www.duinsoft.nl/pkg debs all" | sudo tee -a /etc/apt/sources.list
-sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 5CB26B26
-sudo apt-get update
-sudo apt-get install tasksel update-sun-jre gparted git zsh curl dkms build-essential \
-linux-headers-`uname -r` libasound2-plugins:i386 php-pear phpmyadmin
-
+sudo apt upgrade && sudo apt install -y zsh curl git nodejs yarn vagrant
 ```
-
-References:
-[Java sun-jre](http://www.duinsoft.nl/packages.php?t=en)
-dkms is needed for virtualbox
-
-Then run these commands:
-```
-sudo tasksel install lamp-server
-sudo adduser {username} www-data
-sudo chown -R www-data:www-data /var/www
-sudo chmod -R g+rw /var/www
-sudo rm /var/www/*
-sudo mv /var/lib/mysql /var/lib/mysql-orig
-sudo mkdir /var/lib/mysql
-sudo chown mysql:mysql /var/lib/mysql
-sudo chmod -R u+rw /var/lib/mysql
-chsh -s /usr/bin/zsh
-```
-run `sudo blkbld` to get the UUIDs of the www and mysql partitions
-edit /etc/fstab and point those to /var/www and /var/lib/mysql directories (using default in the options)
 
 Restore the files in "Files to Save"
 
-
 Outside repositories
 --------------------
-https://www.google.com/intl/en/chrome/browser/beta.html
-https://www.dropbox.com/install
-https://www.virtualbox.org/wiki/Linux_Downloads
-http://www.skype.com/en/ http://askubuntu.com/questions/220636/proper-way-to-install-skype-x86-64-in-ubuntu-12-04-after-recent-skype-upgrade
-http://www.sublimetext.com/2 follow [sublime setup instructions](http://www.technoreply.com/how-to-install-sublime-text-2-on-ubuntu-12-04-unity/)
+* https://www.google.com/intl/en/chrome/browser/beta.html
+* https://www.dropbox.com/install
+* https://www.virtualbox.org/wiki/Linux_Downloads
+* http://www.skype.com/en/ http://askubuntu.com/questions/220636/proper-way-to-install-skype-x86-64-in-ubuntu-12-04-after-recent-skype-upgrade
+* http://www.sublimetext.com/3 follow [sublime setup instructions](https://www.sublimetext.com/docs/3/linux_repositories.html)
+* [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)
+
+Aditional setup
+---------------
+
+### Oh My Zsh
+Run following script:
 ```
-sudo tar xvf Sublime\ Text\ 2.0.1\ x64.tar.bz2 -C /opt/sublime
-sudo mv /opt/sublime/Sublime\ Text\ 2/sublime_text /opt/sublime
-sudo ln -s /opt/sublime/sublime_text /usr/bin/sublime
+# Set Theme
+sed -i -r '/^ZSH_THEME/s/"(.*)"/"candy"/' ~/.zshrc
+
+# Set Plugins
+sed -i '/^plugins/s/(.*)/(git yarn)/' ~/.zshrc
+
+# Uncomment lines
+sed -i '/ENABLE_CORRECTION/s/^#\s*//' ~/.zshrc
+sed -i '/COMPLETION_WAITING_DOTS/s/^#\s*//' ~/.zshrc
+cat <<EOT >> ~/.zshrc
+function homestead() {
+  ( cd ~/Homestead && vagrant $* )
+}
+
+export PATH=$PATH:~/.npm-global/bin:
+EOT
+```
+
+### Laravel Homestead
+See [Installation Docs](https://laravel.com/docs/5.5/homestead#installation-and-setup)
+
+```
+vagrant box add laravel/homestead
+
+cd Homestead
+
+# Clone the desired release...
+git checkout v6.5.0
 ```
 
