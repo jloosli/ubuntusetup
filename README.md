@@ -44,7 +44,7 @@ Outside repositories
 * https://www.dropbox.com/install
 * https://www.virtualbox.org/wiki/Linux_Downloads
 * http://www.skype.com/en/ http://askubuntu.com/questions/220636/proper-way-to-install-skype-x86-64-in-ubuntu-12-04-after-recent-skype-upgrade
-* http://www.sublimetext.com/3 follow [sublime setup instructions](https://www.sublimetext.com/docs/3/linux_repositories.html)
+* http://www.sublimetext.com/3 follow [sublime setup instructions](http://docs.sublimetext.info/en/latest/getting_started/install.html#id3)
 * [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)
 
 Aditional setup
