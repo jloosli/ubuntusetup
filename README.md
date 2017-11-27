@@ -86,5 +86,9 @@ git checkout v6.5.0
 ### VIM
 See https://github.com/amix/vimrc
 
+### Keyboard
+Switch terminal to Ctrl-Shift-Alt-t (ctrl-alt-t conflicts with PHPStorm)
+
+
 
 
