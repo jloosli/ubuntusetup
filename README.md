@@ -8,10 +8,13 @@ Partitions
 /var/www
 /var/lib/mysql
 
-Files to save
+Files/directories to save
 -------------
 /etc/hosts
 ~/.homestead/Homestead.yaml
+~/.ssh
+
+
 
 
 Repositories to add
@@ -27,14 +30,14 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 Packages to add
 ---------------
 ```
-sudo apt upgrade && sudo apt install -y zsh curl git nodejs yarn vagrant
+sudo apt upgrade && sudo apt install -y curl git zsh nodejs yarn vagrant
 ```
 
 Restore the files in "Files to Save"
 
 Outside repositories
 --------------------
-* https://www.google.com/intl/en/chrome/browser/beta.html
+* https://www.google.com/chrome/browser/desktop/index.html
 * https://www.dropbox.com/install
 * https://www.virtualbox.org/wiki/Linux_Downloads
 * http://www.skype.com/en/ http://askubuntu.com/questions/220636/proper-way-to-install-skype-x86-64-in-ubuntu-12-04-after-recent-skype-upgrade
@@ -76,4 +79,9 @@ cd Homestead
 # Clone the desired release...
 git checkout v6.5.0
 ```
+
+### VIM
+See https://github.com/amix/vimrc
+
+
 
