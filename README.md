@@ -16,6 +16,7 @@ Files/directories to save
 /etc/hosts
 ~/.homestead/Homestead.yaml
 ~/.ssh
+~/.soapui
 ```
 
 
@@ -88,6 +89,12 @@ See https://github.com/amix/vimrc
 
 ### Keyboard
 Switch terminal to Ctrl-Shift-Alt-t (ctrl-alt-t conflicts with PHPStorm)
+
+### Setup Git Credential Helper
+See https://help.github.com/articles/caching-your-github-password-in-git/
+```
+git config --global credential.helper cache
+git config --global credential.helper 'cache --timeout=999999999'
 
 
 
